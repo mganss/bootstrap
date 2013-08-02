@@ -39,3 +39,5 @@ nbproject
 .CVS
 .idea
 node_modules
+
+less/*.css

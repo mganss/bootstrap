@@ -93,6 +93,9 @@
   border-bottom: 0;
   > li > a {
     border-bottom: 1px solid @nav-tabs-justified-link-border-color;
+    &:hover {
+        border-color: @nav-tabs-link-hover-border-color;
+    }
 
     // Override margin from .nav-tabs
     margin-right: 0;
@@ -154,7 +157,7 @@
 
     // Links rendered as pills
     > a {
-      border-radius: 5px;
+      border-radius: 0;
     }
     + li {
       margin-left: 2px;
@@ -169,6 +172,10 @@
         background-color: @nav-pills-active-link-hover-bg;
       }
     }
+  }
+  // pulling this in mainly for less shorthand
+  &.nav-justified {
+    .nav-justified();
   }
 }
 
