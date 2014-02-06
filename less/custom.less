@@ -1,0 +1,221 @@
+// carousel.less
+
+// Optional indicator pips
+//
+// Add an unordered list with the following class and add a list item for each
+// slide your carousel holds.
+
+.carousel-indicators {
+  li {
+    border-radius: 0;
+  }
+}
+
+// navbar.less
+
+// Navbar toggle
+//
+// Custom button for toggling the `.navbar-collapse`, powered by the collapse
+// JavaScript plugin.
+
+.navbar-toggle {
+  // Bars
+  .icon-bar {
+    border-radius: 0;
+  }
+}
+
+.navbar-form {
+    .box-shadow(none);
+}
+
+.navbar-collapse {
+    box-shadow: none;
+}
+
+.navbar-default {
+    // Dropdown menu items and carets
+    .navbar-nav {
+        // Remove background color from open dropdown
+        > .open > a {
+            &,
+            &:hover,
+            &:focus {
+                background-color: darken(@btn-default-bg, 8%);
+            }
+        }
+    }
+}
+
+// navs.less
+
+.nav {
+    // Open dropdowns
+    .open > a {
+        &,
+        &:hover,
+        &:focus {
+            background-color: @nav-tabs-active-link-hover-bg;
+            border-color: @nav-tabs-active-link-hover-bg;
+        }
+    }
+}
+
+// Pills
+// -------------------------
+.nav-pills {
+  > li {
+    // Links rendered as pills
+    > a {
+      border-radius: 0;
+    }
+  }
+}
+
+// popovers.less
+
+.popover {
+    .box-shadow(none);
+    padding: 0;
+    border: 0;
+}
+
+.popover-title {
+  .box-shadow(none);
+  border-bottom: 1px solid @popover-title-bg;
+}
+
+.popover-title {
+  border-radius: 0;
+}
+
+// labels.less
+
+.label {
+  border-radius: 0;
+}
+
+// panels.less
+
+.panel {
+  .box-shadow(none);
+}
+
+.panel-heading {
+  .border-top-radius(0);
+}
+
+// Optional footer (stays gray in every modifier class)
+.panel-footer {
+  .border-bottom-radius(0);
+}
+
+// button-groups.less
+
+// The clickable button for toggling the menu
+// Remove the gradient and set the same inset shadow as the :active state
+.btn-group.open .dropdown-toggle {
+  .box-shadow(none);
+}
+
+// buttons.less
+
+.btn {
+    &:active,
+    &.active {
+        .box-shadow(none);
+    }
+}
+
+// dropdowns.less
+
+.dropdown-menu {
+    .box-shadow(none);
+}
+
+// forms.less
+
+.form-control {
+  .box-shadow(none);
+  .transition(~"background-color ease-in-out .15s");
+}
+
+// progress-bars.less
+
+// Outer container
+.progress {
+  .box-shadow(none);
+}
+
+// Bar of progress
+.progress-bar {
+  .box-shadow(none);
+}
+
+// wells.less
+
+.well {
+  .box-shadow(none);
+  border: 1px solid @well-bg;
+}
+
+// pager.less
+
+.pager {
+    li {
+        > a:hover,
+        > a:focus {
+            border-color: @pagination-hover-bg;
+        }
+    }
+}
+
+// pagination.less
+
+.pagination {
+    > li > a,
+    > li > span {
+        &:hover,
+        &:focus {
+            border-color: @pagination-hover-bg;
+        }
+    }
+}
+
+// Individual list items
+// -------------------------
+
+.list-group-item {
+    // Linked list items
+    a& {
+        // Hover state
+        &:hover,
+        &:focus {
+            border-color: @list-group-hover-bg;
+        }
+    }
+}
+
+// tables.less
+
+.table {
+  // Cells
+  thead,
+  tbody,
+  tfoot {
+    > tr {
+      > th,
+      > td {
+        border-top: 0;
+      }
+    }
+  }
+  // Bottom align for column headings
+  thead > tr > th {
+    border-bottom-width: 1px;
+  }
+  // Account for multiple tbody instances
+  tbody + tbody {
+    border-top-width: 1px;
+  }
+}
