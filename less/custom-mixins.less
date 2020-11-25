@@ -1,36 +1,48 @@
 .form-control-validation(@text-color: #555; @border-color: #ccc; @background-color: #f5f5f5) {
   // Color the label and help text
   .help-block,
-  .control-label {
+  .control-label,
+  .radio,
+  .checkbox,
+  .radio-inline,
+  .checkbox-inline,
+  &.radio label,
+  &.checkbox label,
+  &.radio-inline label,
+  &.checkbox-inline label  {
     color: @text-color;
   }
-  @bg: lighten(@border-color, 35%);
-  @bgfocus: lighten(@border-color, 25%);
   // Set the border and box shadow on specific inputs to match
   .form-control {
-    border-color: @bg;
-    background-color: @bg;
+    border-color: darken(@background-color, 10%);
+    background-color: darken(@background-color, 10%);
     .box-shadow(none); // Redeclare so transitions work
     &:focus {
-      border-color: @bgfocus;
-      background-color: @bgfocus;
+      border-color: darken(@background-color, 5%);
+      background-color: darken(@background-color, 5%);
       .box-shadow(none);
     }
   }
   // Set validation states also for addons
-  @bgaddon: lighten(@border-color, 15%);
   .input-group-addon {
     color: @text-color;
-    border-color: @bgaddon;
-    background-color: @bgaddon;
+    background-color: darken(@background-color, 15%);
+    border-color: darken(@background-color, 15%);
+  }
+  // Optional feedback icon
+  .form-control-feedback {
+    color: @text-color;
   }
 }
 
 .form-control-focus(@color: @input-border-focus) {
+  @color-rgba: rgba(red(@color), green(@color), blue(@color), .6);
   &:focus {
+    color: lighten(@input-color, 10%);
     @bg: lighten(@color, 25%);
     border-color: @bg;
     background-color: @bg;
+    outline: 0;
     .box-shadow(none);
   }
 }
@@ -40,30 +52,165 @@
   background-color: @background;
   border-color: @border;
 
-  &:hover,
   &:focus,
-  &:active,
-  &.active,
-  .open .dropdown-toggle& {
+  &.focus {
     color: @color;
-    background-color: darken(@background, 8%);
-        border-color: darken(@border, 8%);
+    background-color: lighten(@background, 10%);
+    border-color: lighten(@border, 10%);
+  }
+  &:hover {
+    color: @color;
+    background-color: lighten(@background, 10%);
+    border-color: lighten(@border, 10%);
   }
   &:active,
   &.active,
-  .open .dropdown-toggle& {
+  .open > .dropdown-toggle& {
+    color: @color;
+    background-color: lighten(@background, 10%);
     background-image: none;
+    border-color: lighten(@border, 10%);
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: @color;
+      background-color: lighten(@background, 17%);
+      border-color: lighten(@border, 17%);
+    }
   }
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
-    &,
     &:hover,
     &:focus,
-    &:active,
-    &.active {
+    &.focus {
       background-color: @background;
-          border-color: @border
+      border-color: @border;
+    }
+  }
+
+  .badge {
+    color: @background;
+    background-color: @color;
+  }
+}
+
+.text-emphasis-variant(@color) {
+  color: @color;
+  a&:hover,
+  a&:focus {
+    color: @color;
+  }
+}
+
+.table-row-variant(@state; @background) {
+  // Exact selectors below required to override `.table-striped` and prevent
+  // inheritance to nested tables.
+  .table > thead > tr,
+  .table > tbody > tr,
+  .table > tfoot > tr {
+    > td.@{state},
+    > th.@{state},
+    &.@{state} > td,
+    &.@{state} > th {
+      background-color: @background;
+    }
+  }
+
+  // Hover states for `.table-hover`
+  // Note: this is not available for cells or rows within `thead` or `tfoot`.
+  .table-hover > tbody > tr {
+    > td.@{state}:hover,
+    > th.@{state}:hover,
+    &.@{state}:hover > td,
+    &:hover > .@{state},
+    &.@{state}:hover > th {
+      background-color: darken(@background, 5%);
+    }
+  }
+}
+
+// Contextual backgrounds
+
+.bg-variant(@color) {
+  background-color: darken(@color, 10%);
+  a&:hover,
+  a&:focus {
+    background-color: darken(@color, 15%);
+  }
+}
+
+// Alerts
+
+.alert-variant(@background; @border; @text-color) {
+  color: lighten(@text-color, 5%);
+  background-color: darken(@background, 10%);
+  border-color: darken(@border, 10%);
+
+  hr {
+    border-top-color: darken(@border, 15%);
+  }
+
+  .alert-link {
+    color: lighten(@text-color, 10%);
+  }
+}
+
+// List Groups
+
+.list-group-item-variant(@state; @background; @color) {
+  @textcolor: lighten(@color, 20%);
+  .list-group-item-@{state} {
+    color: @textcolor;
+    background-color: @background;
+
+    a&,
+    button& {
+      color: @textcolor;
+
+      .list-group-item-heading {
+        color: inherit;
+      }
+
+      &:hover,
+      &:focus {
+        color: @textcolor;
+        background-color: darken(@background, 5%);
+      }
+      &.active,
+      &.active:hover,
+      &.active:focus {
+        color: #fff;
+        background-color: @textcolor;
+        border-color: @textcolor;
+      }
+    }
+  }
+}
+
+// Panels
+
+.panel-variant(@border; @heading-text-color; @heading-bg-color; @heading-border) {
+  @headingtextcolor: lighten(@heading-text-color, 20%);
+  border-color: @border;
+
+  & > .panel-heading {
+    color: @headingtextcolor;
+    background-color: @heading-bg-color;
+    border-color: @heading-border;
+
+    + .panel-collapse > .panel-body {
+      border-top-color: @border;
+    }
+    .badge {
+      color: @heading-bg-color;
+      background-color: @headingtextcolor;
+    }
+  }
+  & > .panel-footer {
+    + .panel-collapse > .panel-body {
+      border-bottom-color: @border;
     }
   }
 }

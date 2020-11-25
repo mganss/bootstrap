@@ -41,7 +41,7 @@
             &,
             &:hover,
             &:focus {
-                background-color: darken(@btn-default-bg, 8%);
+                background-color: lighten(@btn-default-bg, 8%);
             }
         }
     }
@@ -77,7 +77,6 @@
 .popover {
     .box-shadow(none);
     padding: 0;
-    border: 0;
 }
 
 .popover-title {
@@ -124,6 +123,16 @@
     &:active,
     &.active {
         .box-shadow(none);
+        &:hover,
+        &:focus,
+        &.focus {
+          outline: none;
+        }
+    }
+    &:hover,
+    &:focus,
+    &.focus {
+      outline: none;
     }
 }
 
@@ -138,6 +147,16 @@
 .form-control {
   .box-shadow(none);
   .transition(~"background-color ease-in-out .15s");
+}
+
+&[disabled]:focus,
+&[readonly]:focus,
+fieldset[disabled] &:focus {
+  border-color: @input-bg-disabled;
+}
+
+.help-block {
+  color: lighten(@text-color, 5%); // lighten the text some for contrast
 }
 
 // progress-bars.less
@@ -218,4 +237,30 @@
   tbody + tbody {
     border-top-width: 1px;
   }
+}
+
+.table-row-variant(active; lighten(@table-bg-active, 20%));
+
+// type.less
+
+// Contextual backgrounds
+// For now we'll leave these alongside the text classes until v4 when we can
+// safely shift things around (per SemVer rules).
+.bg-primary {
+  // Given the contrast here, this is the only class to have its color inverted
+  // automatically.
+  color: inherit;
+  .bg-variant(@brand-primary);
+}
+.bg-success {
+  .bg-variant(@state-success-bg);
+}
+.bg-info {
+  .bg-variant(@state-info-bg);
+}
+.bg-warning {
+  .bg-variant(@state-warning-bg);
+}
+.bg-danger {
+  .bg-variant(@state-danger-bg);
 }
