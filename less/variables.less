@@ -28,7 +28,7 @@
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-@body-bg:               difference(#ffffff, #fff);
+@body-bg:               #171717;
 //** Global text color on `<body>`.
 @text-color:            @gray-dark;
 
@@ -131,9 +131,9 @@
 //** Default background color used for all tables.
 @table-bg:                      transparent;
 //** Background color used for `.table-striped`.
-@table-bg-accent:               lighten(difference(#ffffff, #f9f9f9), 5%);
+@table-bg-accent:               difference(#ffffff, #ddd);
 //** Background color used for `.table-hover`.
-@table-bg-hover:                lighten(difference(#ffffff, #f5f5f5), 5%);
+@table-bg-hover:                difference(#ffffff, #ddd);
 @table-bg-active:               @table-bg-hover;
 
 //** Border color for table and cell borders.
@@ -234,7 +234,7 @@
 //## Dropdown menu container and contents.
 
 //** Background for the dropdown menu.
-@dropdown-bg:                    difference(#ffffff, #fff);
+@dropdown-bg:                    difference(#ffffff, #ddd);
 //** Dropdown menu `border-color`.
 @dropdown-border:                difference(#ffffff, #ccc);
 //** Dropdown menu `border-color` **for IE8**.
@@ -247,7 +247,7 @@
 //** Hover color for dropdown links.
 @dropdown-link-hover-color:      lighten(@gray-dark, 5%);
 //** Hover background for dropdown links.
-@dropdown-link-hover-bg:         lighten(difference(#ffffff, #f5f5f5), 5%);
+@dropdown-link-hover-bg:         lighten(difference(#ffffff, #ddd), 5%);
 
 //** Active dropdown menu item text color.
 @dropdown-link-active-color:     @component-active-color;
@@ -367,7 +367,7 @@
 @navbar-collapse-max-height:       340px;
 
 @navbar-default-color:             difference(#ffffff, #777);
-@navbar-default-bg:                difference(#ffffff, #f8f8f8);
+@navbar-default-bg:                difference(#ffffff, #ddd);
 @navbar-default-border:            lighten(@navbar-default-bg, 6.5%);
 
 // Navbar links
@@ -450,7 +450,7 @@
 //##
 
 @pagination-color:                     @link-color;
-@pagination-bg:                        lighten(difference(#ffffff, #fff), 10%);
+@pagination-bg:                        difference(#ffffff, #ddd);
 @pagination-border:                    difference(#ffffff, #ddd);
 
 @pagination-hover-color:               @link-hover-color;
@@ -462,7 +462,7 @@
 @pagination-active-border:             @brand-primary;
 
 @pagination-disabled-color:            @gray-light;
-@pagination-disabled-bg:               difference(#ffffff, #fff);
+@pagination-disabled-bg:               difference(#ffffff, #ddd);
 @pagination-disabled-border:           difference(#ffffff, #ddd);
 
 
@@ -546,7 +546,7 @@
 //##
 
 //** Popover body background color
-@popover-bg:                          difference(#ffffff, #fff);
+@popover-bg:                          difference(#ffffff, #ddd);
 //** Popover maximum width
 @popover-max-width:                   276px;
 //** Popover border color
@@ -606,7 +606,7 @@
 @modal-title-line-height:     @line-height-base;
 
 //** Background color of modal content area
-@modal-content-bg:                             difference(#ffffff, #fff);
+@modal-content-bg:                             @body-bg;
 //** Modal content border color
 @modal-content-border-color:                   rgba(0, 0, 0, .2);
 //** Modal content border color **for IE8**
@@ -656,7 +656,7 @@
 //##
 
 //** Background color of the whole progress component
-@progress-bg:                 lighten(difference(#ffffff, #f5f5f5), 5%);
+@progress-bg:                 difference(#ffffff, #ddd);
 //** Progress bar text color
 @progress-bar-color:          difference(#ffffff, #fff);
 //** Variable for setting rounded corners on progress bar.
@@ -679,14 +679,14 @@
 //##
 
 //** Background color on `.list-group-item`
-@list-group-bg:                 difference(#ffffff, #fff);
+@list-group-bg:                 difference(#fff, #ddd);
 //** `.list-group-item` border color
-@list-group-border:             difference(#ffffff, #ddd);
+@list-group-border:             difference(#ffffff, #ccc);
 //** List group border radius
 @list-group-border-radius:      @border-radius-base;
 
 //** Background color of single list items on hover
-@list-group-hover-bg:           lighten(difference(#ffffff, #f5f5f5), 5%);
+@list-group-hover-bg:           lighten(difference(#ffffff, #ddd), 5%);
 //** Text color of active list items
 @list-group-active-color:       @component-active-color;
 //** Background color of active list items
@@ -712,7 +712,7 @@
 //
 //##
 
-@panel-bg:                    difference(#ffffff, #fff);
+@panel-bg:                    difference(#ffffff, #ddd);
 @panel-body-padding:          15px;
 @panel-heading-padding:       10px 15px;
 @panel-footer-padding:        @panel-heading-padding;
@@ -720,11 +720,11 @@
 
 //** Border color for elements within panels
 @panel-inner-border:          difference(#ffffff, #ddd);
-@panel-footer-bg:             lighten(difference(#ffffff, #f5f5f5), 5%);
+@panel-footer-bg:             lighten(difference(#ffffff, #ddd), 5%);
 
 @panel-default-text:          @gray-dark;
 @panel-default-border:        difference(#ffffff, #ddd);
-@panel-default-heading-bg:    lighten(difference(#ffffff, #f5f5f5), 5%);
+@panel-default-heading-bg:    lighten(difference(#ffffff, #ddd), 5%);
 
 @panel-primary-text:          difference(#ffffff, #fff);
 @panel-primary-border:        @brand-primary;
@@ -770,7 +770,7 @@
 //
 //##
 
-@well-bg:                     lighten(difference(#ffffff, #f5f5f5), 5%);
+@well-bg:                     lighten(difference(#ffffff, #ddd), 5%);
 @well-border:                 lighten(@well-bg, 7%);
 
 
@@ -800,7 +800,7 @@
 @breadcrumb-padding-vertical:   8px;
 @breadcrumb-padding-horizontal: 15px;
 //** Breadcrumb background color
-@breadcrumb-bg:                 lighten(difference(#ffffff, #f5f5f5), 5%);
+@breadcrumb-bg:                 difference(#ffffff, #ddd);
 //** Breadcrumb text color
 @breadcrumb-color:              difference(#ffffff, #ccc);
 //** Text color of current page in the breadcrumb
@@ -845,7 +845,7 @@
 @kbd-color:                   difference(#ffffff, #fff);
 @kbd-bg:                      difference(#ffffff, #333);
 
-@pre-bg:                      lighten(difference(#ffffff, #f5f5f5), 5%);
+@pre-bg:                      difference(#ffffff, #ddd);
 @pre-color:                   @gray-dark;
 @pre-border-color:            difference(#ffffff, #ccc);
 @pre-scrollable-max-height:   340px;
